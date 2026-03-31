@@ -1,0 +1,25 @@
+src/actions/admin.actions.ts(42,57): error TS2345: Argument of type '$ZodFormattedError<{ orderId: string; newStatus: "PENDING" | "IN_PREPARATION" | "READY_FOR_DISPATCH" | "DISPATCHED" | "DELIVERED" | "CANCELLED"; dispatcherId?: string | null | undefined; }, string>' is not assignable to parameter of type 'any[] | undefined'.
+src/actions/admin.actions.ts(74,60): error TS2345: Argument of type '$ZodFormattedError<{ productId: string; newStock: number; }, string>' is not assignable to parameter of type 'any[] | undefined'.
+src/actions/auth.actions.ts(27,52): error TS2345: Argument of type '$ZodFormattedError<{ email: string; }, string>' is not assignable to parameter of type 'any[] | undefined'.
+src/actions/order.actions.ts(43,63): error TS2345: Argument of type '$ZodFormattedError<{ items: { productId: string; quantity: number; }[]; }, string>' is not assignable to parameter of type 'any[] | undefined'.
+src/app/admin/layout.tsx(51,19): error TS2322: Type '() => Promise<ActionResponse<undefined>>' is not assignable to type 'string | ((formData: FormData) => void | Promise<void>) | undefined'.
+  Type '() => Promise<ActionResponse<undefined>>' is not assignable to type '(formData: FormData) => void | Promise<void>'.
+    Type 'Promise<ActionResponse<undefined>>' is not assignable to type 'void | Promise<void>'.
+      Type 'Promise<ActionResponse<undefined>>' is not assignable to type 'Promise<void>'.
+        Type 'ActionResponse<undefined>' is not assignable to type 'void'.
+src/app/login/page.tsx(12,57): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(action: (state: ActionResponse<undefined> | undefined) => ActionResponse<undefined> | Promise<ActionResponse<undefined> | undefined> | undefined, initialState: ActionResponse<...> | undefined, permalink?: string | undefined): [state: ...]', gave the following error.
+    Argument of type '(formData: FormData) => Promise<ActionResponse<undefined>>' is not assignable to parameter of type '(state: ActionResponse<undefined> | undefined) => ActionResponse<undefined> | Promise<ActionResponse<undefined> | undefined> | undefined'.
+      Types of parameters 'formData' and 'state' are incompatible.
+        Type 'ActionResponse<undefined> | undefined' is not assignable to type 'FormData'.
+          Type 'undefined' is not assignable to type 'FormData'.
+  Overload 2 of 2, '(action: (state: ActionResponse<undefined> | undefined, payload: unknown) => ActionResponse<undefined> | Promise<ActionResponse<undefined> | undefined> | undefined, initialState: ActionResponse<...> | undefined, permalink?: string | undefined): [state: ...]', gave the following error.
+    Argument of type '(formData: FormData) => Promise<ActionResponse<undefined>>' is not assignable to parameter of type '(state: ActionResponse<undefined> | undefined, payload: unknown) => ActionResponse<undefined> | Promise<ActionResponse<undefined> | undefined> | undefined'.
+      Types of parameters 'formData' and 'state' are incompatible.
+        Type 'ActionResponse<undefined> | undefined' is not assignable to type 'FormData'.
+          Type 'undefined' is not assignable to type 'FormData'.
+src/components/TopNav.tsx(33,15): error TS2322: Type '() => Promise<ActionResponse<undefined>>' is not assignable to type 'string | ((formData: FormData) => void | Promise<void>) | undefined'.
+  Type '() => Promise<ActionResponse<undefined>>' is not assignable to type '(formData: FormData) => void | Promise<void>'.
+    Type 'Promise<ActionResponse<undefined>>' is not assignable to type 'void | Promise<void>'.
+      Type 'Promise<ActionResponse<undefined>>' is not assignable to type 'Promise<void>'.
+        Type 'ActionResponse<undefined>' is not assignable to type 'void'.
