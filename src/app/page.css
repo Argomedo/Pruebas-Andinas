@@ -1,0 +1,135 @@
+.landing-page {
+  min-height: 100vh;
+  padding: 2rem 0;
+  display: flex;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(var(--primary) / 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(var(--primary) / 0.05) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+.navbar {
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  z-index: 10;
+  position: sticky;
+  top: 1rem;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  margin: 0;
+  color: hsl(var(--foreground));
+}
+
+.logo-icon {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-hover)));
+  border-radius: var(--radius-sm);
+}
+
+.nav-link {
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: hsl(var(--foreground));
+}
+
+.hero {
+  margin-top: 6rem;
+  text-align: center;
+  max-width: 800px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: hsla(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: 4rem;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, hsl(var(--foreground)), hsl(var(--muted)));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+.btn-large {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* Mockup Styles */
+.dashboard-mockup {
+  margin-top: 4rem;
+  padding: 2rem;
+  width: 100%;
+  text-align: left;
+  border: 1px solid hsla(var(--border) / 0.5);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+}
+
+.mockup-title {
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.status-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.status-success {
+  background-color: hsl(var(--success-bg));
+  color: hsl(var(--success));
+}
+
+.border-rounded {
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--surface));
+  padding: 1rem 1.5rem;
+  transition: transform 0.2s;
+}
+
+.border-rounded:hover {
+  transform: translateX(4px);
+  border-color: hsl(var(--primary));
+}
+
+.row-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: hsla(var(--primary) / 0.1);
+}
+
+.font-semibold {
+  font-weight: 600;
+  margin: 0;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  margin: 0;
+}
