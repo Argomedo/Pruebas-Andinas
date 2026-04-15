@@ -46,5 +46,29 @@ export const AdminService = {
     }
     await ProductRepository.updateStock(productId, newStock);
     logger.info(`Admin adjusted stock for product ${productId}`, { newStock });
+  },
+
+  async getSalesReport() {
+    const orders = await OrderRepository.findAll();
+    const products = await ProductRepository.findAll();
+
+    const totalRevenue = orders
+      .filter(o => o.status !== "CANCELLED")
+      .reduce((sum, o) => sum + o.total, 0);
+
+    const ordersByStatus = orders.reduce((acc, o) => {
+      acc[o.status] = (acc[o.status] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>);
+
+    const criticalStock = products.filter(p => p.stock < 10);
+
+    return {
+      totalRevenue,
+      totalOrders: orders.length,
+      ordersByStatus,
+      criticalStockCount: criticalStock.length,
+      criticalStock
+    };
   }
 };

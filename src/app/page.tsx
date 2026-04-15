@@ -11,9 +11,9 @@ export default function Home() {
           <h1 className="brand-name">Andina SpA</h1>
         </div>
         <nav className="nav-links flex gap-6">
-          <Link href="/catalogo" className="nav-link text-muted">Catálogo</Link>
-          <Link href="/ingresar" className="btn btn-outline">Ingresar</Link>
-          <Link href="/registro" className="btn btn-primary">Crear Cuenta</Link>
+          <Link href="/dashboard" className="nav-link text-muted">Catálogo</Link>
+          <Link href="/login" className="btn btn-outline">Ingresar</Link>
+          <Link href="/login" className="btn btn-primary">Crear Cuenta</Link>
         </nav>
       </header>
 
@@ -24,12 +24,12 @@ export default function Home() {
         <p className="hero-subtitle text-muted">
           Optimiza el abastecimiento de tu minimarket. Revisa nuestro catálogo, haz tus pedidos en segundos y sigue el despacho en tiempo real.
         </p>
-        
+
         <div className="hero-cta flex gap-4 mt-4">
-          <Link href="/registro" className="btn btn-primary btn-large">
+          <Link href="/login" className="btn btn-primary btn-large">
             Comenzar Ahora
           </Link>
-          <Link href="/catalogo" className="btn btn-outline btn-large">
+          <Link href="/dashboard" className="btn btn-outline btn-large">
             Ver Productos
           </Link>
         </div>
@@ -40,7 +40,7 @@ export default function Home() {
             <h3 className="mockup-title">Últimos Pedidos</h3>
             <span className="status-badge status-success">Sistema en línea</span>
           </div>
-          
+
           <div className="mockup-table flex-col gap-2">
             {[1, 2, 3].map((i) => (
               <div key={i} className="mockup-row flex justify-between items-center p-6 border-rounded">

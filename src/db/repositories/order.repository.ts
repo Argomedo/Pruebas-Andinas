@@ -17,6 +17,11 @@ export const OrderRepository = {
     return Array.from(mockDb.orders.values()).filter(o => o.customerId === customerId);
   },
 
+  async findByDispatcher(dispatcherId: string): Promise<Order[]> {
+    await simulateQueryLatency();
+    return Array.from(mockDb.orders.values()).filter(o => o.dispatcherId === dispatcherId);
+  },
+
   async findAll(): Promise<Order[]> {
     await simulateQueryLatency();
     return Array.from(mockDb.orders.values());

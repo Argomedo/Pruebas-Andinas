@@ -3,6 +3,7 @@ import { AuthService } from "@/services/auth.service";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { PackageOpen, Clock, Truck, CheckCircle, XCircle } from "lucide-react";
+import { DownloadInvoiceBtn } from "./DownloadInvoiceBtn";
 import "./pedidos.css";
 
 export default async function PedidosPage() {
@@ -41,7 +42,10 @@ export default async function PedidosPage() {
                     {order.createdAt.toLocaleDateString("es-CL", { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
                   </span>
                 </div>
-                <OrderStatusBadge status={order.status} />
+                <div className="order-actions">
+                  <DownloadInvoiceBtn orderId={order.id} />
+                  <OrderStatusBadge status={order.status} />
+                </div>
               </div>
 
               <div className="order-body">

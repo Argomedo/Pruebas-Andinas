@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { AuthService } from "@/services/auth.service";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { ShieldCheck, Package, ShoppingBag, LogOut } from "lucide-react";
+import { ShieldCheck, Package, ShoppingBag, LogOut, TrendingUp } from "lucide-react";
 import { logoutAction } from "@/actions/auth.actions";
 
 export default async function AdminLayout({
@@ -43,6 +43,9 @@ export default async function AdminLayout({
             </Link>
             <Link href="/admin/inventario" className="admin-nav-item">
               <Package size={20} /> Gestión de Inventario
+            </Link>
+            <Link href="/admin/reportes" className="admin-nav-item">
+              <TrendingUp size={20} /> Reportes de Negocio
             </Link>
           </nav>
 

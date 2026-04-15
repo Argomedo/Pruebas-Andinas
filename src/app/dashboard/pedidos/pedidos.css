@@ -121,6 +121,38 @@
 .status-delivered { background: rgba(16, 185, 129, 0.1); color: #10b981; }
 .status-cancelled { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
 
+.order-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-download {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-download:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+}
+
+.btn-download:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 
 /* ========== CATALOGO ESTILOS ========== */
 .catalog-view {
