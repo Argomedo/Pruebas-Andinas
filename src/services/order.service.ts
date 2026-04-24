@@ -21,7 +21,7 @@ export const OrderService = {
     // Validar el stock y precios de forma secuencial (Simulación de Transacción)
     for (const item of items) {
       const product = await ProductRepository.findById(item.productId);
-      
+
       if (!product) {
         throw new DomainError(`El producto no existe (Ref: ${item.productId})`, "PRODUCT_NOT_FOUND");
       }
@@ -40,7 +40,7 @@ export const OrderService = {
         quantity: item.quantity,
         unitPrice,
       });
-      
+
       // Update stock optimistically (en un escenario real esto se hace al vuelo en la base de datos)
       await ProductRepository.updateStock(product.id, product.stock - item.quantity);
     }
