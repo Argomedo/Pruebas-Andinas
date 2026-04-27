@@ -1,6 +1,5 @@
 /**
- * Prueba E2E con Playwright — Caso: Login de usuario
- * Proyecto: Andina SpA - Plataforma Pedidos Logística
+ * Prueba con Playwright — Caso: Login de usuario
  *
  * Intenta instalar estos cosas antes:
  *   npm install -D @playwright/test
@@ -8,7 +7,6 @@
  *
  * Luego ejecuta si o si desde la terminal los comandos de aca abajo:
  *   npx playwright test tests/playwright/test_login.spec.ts
- *   npx playwright test --headed   ← para ver el navegador abrirse
  */
 
 import { test, expect } from "@playwright/test";

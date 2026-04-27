@@ -1,17 +1,16 @@
 """
 Prueba E2E con Selenium WebDriver — Caso: Login de usuario
-Proyecto: Andina SpA - Plataforma Pedidos Logística
 
-Usuarios mock disponibles (definidos en src/db/mockStore.ts):
+Usuarios mock disponibles (estan en la carpate de mock,definidos en src/db/mockStore.ts):
   admin@andina.cl      → rol ADMIN
   despacho@andina.cl   → rol DISPATCHER
   cliente@elsol.cl     → rol CLIENT
   (la contraseña puede ser cualquier valor — es un mock)
 
-Requisitos:
+Teni que instalar el webdriver de selenium desde la terminal de dev:
   pip install selenium webdriver-manager
 
-Ejecución (con el servidor Next.js corriendo en otro terminal):
+Ejecución, para ejecutar el test tienes que correr el archivo no desde Run, sino desde la consola:
   python tests/selenium/test_login.py
 """
 
@@ -30,12 +29,9 @@ class TestLoginAndina(unittest.TestCase):
 
     def setUp(self):
         options = webdriver.ChromeOptions()
-        # Descomenta para correr sin abrir ventana visual:
-        # options.add_argument("--headless")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
 
-        # ChromeDriverManager descarga automáticamente el driver correcto
         self.driver = webdriver.Chrome(
             service=Service(ChromeDriverManager().install()),
             options=options
@@ -45,9 +41,8 @@ class TestLoginAndina(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
-    # ---------------------------------------------------------------
+
     # CASO 1: Login exitoso con email válido del mock
-    # ---------------------------------------------------------------
     def test_login_exitoso_cliente(self):
         driver = self.driver
         driver.get(f"{BASE_URL}/login")
@@ -61,11 +56,10 @@ class TestLoginAndina(unittest.TestCase):
         # El mock redirige al dashboard tras login exitoso
         WebDriverWait(driver, 10).until(EC.url_contains("/dashboard"))
         self.assertIn("/dashboard", driver.current_url)
-        print("✅ CASO 1: Login exitoso → redirige a /dashboard")
+        print("CASO 1: Login exitoso → redirige a /dashboard")
 
-    # ---------------------------------------------------------------
+
     # CASO 2: Login fallido con email no registrado
-    # ---------------------------------------------------------------
     def test_login_email_no_registrado(self):
         driver = self.driver
         driver.get(f"{BASE_URL}/login")
@@ -74,17 +68,16 @@ class TestLoginAndina(unittest.TestCase):
         driver.find_element(By.ID, "password").send_keys("cualquier_valor")
         driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
 
-        # Debe aparecer el banner .error-banner con el mensaje de AuthError
+        #mensaje de AuthError
         error = WebDriverWait(driver, 5).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, ".error-banner"))
         )
         self.assertTrue(error.is_displayed())
         self.assertIn("no encontrado", error.text.lower())
-        print("✅ CASO 2: Email no registrado → muestra error")
+        print("CASO 2: Email no registrado → muestra error")
 
-    # ---------------------------------------------------------------
-    # CASO 3: Navegación desde landing → /login
-    # ---------------------------------------------------------------
+
+    # CASO 3: Navegación desde → /login
     def test_navegacion_landing_a_login(self):
         driver = self.driver
         driver.get(BASE_URL)
@@ -96,7 +89,7 @@ class TestLoginAndina(unittest.TestCase):
 
         WebDriverWait(driver, 5).until(EC.url_contains("/login"))
         self.assertIn("/login", driver.current_url)
-        print("✅ CASO 3: Botón 'Ingresar' navega a /login")
+        print("CASO 3: Botón 'Ingresar' navega a /login")
 
 
 if __name__ == "__main__":

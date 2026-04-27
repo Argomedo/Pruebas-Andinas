@@ -2,21 +2,14 @@
  * Prueba unitaria con Vitest — Caso: loginAction (Server Action)
  * Proyecto: Andina SpA - Plataforma Pedidos Logística
  *
- * Requisitos previos:
+ * Primero instala esto:
  *   npm install -D vitest @vitejs/plugin-react jsdom @testing-library/react @testing-library/jest-dom
  *
- * Ejecución:
+ * Para ejecutar despus, teni que correr esto:
  *   npx vitest run tests/vitest/login.test.ts
- *   npx vitest              ← modo watch (re-corre al guardar)
  */
 
 import { describe, it, expect, vi, beforeEach } from "vitest";
-
-// ---------------------------------------------------------------
-// MOCK de la acción de login
-// Reemplaza la importación real por un mock controlado.
-// Esto permite probar la lógica sin levantar el servidor.
-// ---------------------------------------------------------------
 const mockLoginAction = vi.fn(async (_prevState: unknown, formData: FormData) => {
   const email = formData.get("email") as string;
 
@@ -38,9 +31,8 @@ const mockLoginAction = vi.fn(async (_prevState: unknown, formData: FormData) =>
   return { success: true };
 });
 
-// ---------------------------------------------------------------
-// SUITE DE PRUEBAS
-// ---------------------------------------------------------------
+
+// CAJA DE PRUEBAS
 describe("loginAction — lógica de autenticación mock", () => {
 
   beforeEach(() => {

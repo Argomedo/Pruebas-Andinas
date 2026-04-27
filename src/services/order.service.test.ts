@@ -24,7 +24,7 @@ describe('OrderService', () => {
     it('debería lanzar un error (EMPTY_CART) si no se envían productos', async () => {
       await expect(OrderService.processCheckout('customer-1', []))
         .rejects.toThrowError(DomainError);
-        
+
       await expect(OrderService.processCheckout('customer-1', []))
         .rejects.toThrowError('El pedido debe contener al menos un producto.');
     });
@@ -77,7 +77,7 @@ describe('OrderService', () => {
 
       // Verificamos que se haya invocado a la base de datos (OrderRepository)
       expect(OrderRepository.create).toHaveBeenCalled();
-      
+
       // Verificamos que el stock se haya actualizado disminuyendo lo que se compró (10 - 2 = 8)
       expect(ProductRepository.updateStock).toHaveBeenCalledWith('prod-1', 8);
     });
